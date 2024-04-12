@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% block head %}
+<title>Makeja App</title>
+{% endblock %}
+
+{% block content %}
+
+<h2>Makeja</h2>
+<a class="btn btn-success" href="{{ url_for('add_house') }}">Add House</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Address</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for house in houses %}
+        <tr>
+            <td>{{ house.address }}</td>
+            <td>{{ house.name }}</td>
+            <td>{{ house.contact }}</td>
+            <td>
+                <a class="btn btn-primary" href="edit_house/{{house.id }}">Edit</a>
+                <a class="btn btn-danger" href="delete_house/{{house.id}}">Delete</a>
+                <a class="btn btn-success" href="add_apartment/{{house.id}}">Add Apartment</a>
+                <a class="btn btn-success" href="view_apartment/{{house.id}}">View Apartments</a>
+
+
+
+               
+
+
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+

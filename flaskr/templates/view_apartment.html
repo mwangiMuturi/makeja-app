@@ -1,0 +1,16 @@
+{% extends 
+'base.html' %} 
+{% block content %}  
+{% for apartments in apartments %}
+<h1>
+    {{apartments.rent}}
+    {{apartments.type}}
+    {{apartments.house_number}}
+
+</h1>
+{% endfor %}
+<h1>Hizi ndio apartments</h1>
+
+
+
+{% endblock%}
