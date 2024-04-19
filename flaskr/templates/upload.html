@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+    {% if message %}
+<div class="alert alert-success">
+    {{ message }}
+</div>
+{% endif %}
+
+    <h1>Upload File</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".jpg,.png,.jpeg">
+        <input type="submit" value="Upload">
+    </form>
+
+    <h2>Uploaded Files</h2>
+    <ul>
+        {% for file in files %}
+       
+       <br>
+      <img src="{{ url_for('static', filename='uploads/'+file.filename) }}" alt="pima poa">
+      <br>
+
+
+       
+        {% endfor %}
+    </ul>
+{% endblock %}
